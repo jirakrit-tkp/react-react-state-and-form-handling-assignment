@@ -81,6 +81,22 @@ function ProductForm() {
     if (!hasError) {
       // ถ้าไม่มี error ให้ submit ฟอร์ม
       console.log("Form submitted successfully:", formData);
+      
+      // แสดง alert พร้อมข้อมูลฟอร์ม
+      const formDataString = Object.entries(formData)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join('\n');
+      alert(`Form submitted successfully!\n\n${formDataString}`);
+      
+      // Reset ฟอร์มกลับเป็นค่าเริ่มต้น
+      setFormData({
+        name: "",
+        image: "",
+        price: "",
+        description: "",
+        email: ""
+      });
+      
       // เพิ่มโค้ดสำหรับส่งข้อมูลไปยัง server หรือทำอย่างอื่นที่นี่
     }
   }
